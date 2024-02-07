@@ -20,7 +20,7 @@ typedef struct s_game
 	char	**map;
 	char	**map_copy;
 	int		lines;
-	int 	columns;
+	int		columns;
 }	t_game;
 
 int		read_map(t_game *game, char *map_name);

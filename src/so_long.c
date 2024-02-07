@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alirola- <alirola-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alirola- <alirola-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:35:09 by alirola-          #+#    #+#             */
-/*   Updated: 2024/02/07 15:40:16 by alirola-         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:39:19 by alirola-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	init(t_game *game)
 	game->columns = 0;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_game	*game;
 
