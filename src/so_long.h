@@ -20,8 +20,22 @@ typedef struct s_game
 	char	**map;
 	char	**map_copy;
 	int		lines;
-	int 	columns;
+	int		columns;
+	int		c;
+	int		e;
+	int		p;
+	t_point	p_position;
+	int		c_copy;
+	int		e_copy;
+	t_point	local_exit;
+	mlx_t	*mlx;
 }	t_game;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 int		read_map(t_game *game, char *map_name);
 int		format_checker(char *map_name);
