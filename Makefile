@@ -1,55 +1,47 @@
 NAME = so_long
 
-SRC = 
+FLAGS = -Wall -Werror -Wextra
 
-OBJ = $(src:.c = .o)
+FILES = src/map_checker.c\
+		src/read_map.c\
+		src/so_long.c\
+
+OBJS = $(FILES:.c=.o)
+
+LIBFT_PATH = ./libft
 
 MLX_PATH = ./MLX42
-MLX = $(MLX_PATH)/libmlx.a
-
-LIBFT_PATH = ./libft 
 
 LIBFT = $(LIBFT_PATH)/libft.a
 
-SO_LONG = so_long.a
-
-CC = gcc
-
-CFLAGS = -Wall -Werror -Wextra
-
-LIB = ar rcs
+MLX = $(MLX_PATH)/libmlx42.a
 
 LIB_SYS = 
 
-RM = rm -rf
+all : $(NAME) $(LIBFT) $(MLX)
 
-$(NAME):	$(OBJ) $(LIBFT) $(MLX)
-	$(LIB) $(SO_LONG) $(OBJ)
-	$(CC) $(CFLAGS) $(SO_LONG) $(MLX) $(LIBFT) $(LIB_SYS) -o $(NAME)
-
-$(OBJ):		src/%.o : src/%.
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(LIBFT)
+$(LIBFT) :
 	@make -s -C $(LIBFT_PATH)
 
-$(MLX)
+$(MLX) :
 	@make -s -C $(MLX_PATH)
 
-all: $(NAME)
+$(NAME) : $(OBJS) $(LIBFT) $(MLX)
+	@gcc $(FLAGS) $(FILES) $(LIBFT) $(MLX) $(LIB_SYS)  -o $(NAME)
 
-clean:
-	$(RM) $(OBJ)
-	make clean -s -C $(MLX_PATH)
-	make clean -s -C $(LIBFT_PATH)
+$(OBJS) : $(FILES)
+	@gcc $(FLAGS) -c $< -o $@
 
-fclean:
-	$(RM) $(NAME) $(OBJ) $(SO_LONG) $(LIBFT) $(MLX)
-	make fclean -s -C $(MLX_PATH)
-	make fclean -s -C $(LIBFT_PATH)
+clean: 
+	@rm -fr $(OBJS)
+	@make clean -s -C $(LIBFT_PATH)
+	@make clean -s -C $(MLX_PATH)
+
+fclean: clean
+	@rm -fr $(NAME)
+	@make fclean -s -C $(LIBFT_PATH)
+	@make fclean -s -C $(MLX_PATH)
 
 re: fclean all
 
-solong: all clean
-
-.PHONY: all re clean fclean solong
+.PHONY : all clean fclean re bonus
