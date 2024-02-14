@@ -5,6 +5,8 @@ FLAGS = -Wall -Werror -Wextra
 FILES = src/map_checker.c\
 		src/read_map.c\
 		src/so_long.c\
+		src/image_to_window.c\
+		src/texture_to_image.c\
 
 OBJS = $(FILES:.c=.o)
 
