@@ -6,7 +6,7 @@
 /*   By: alirola- <alirola-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:35:09 by alirola-          #+#    #+#             */
-/*   Updated: 2024/02/14 16:56:30 by alirola-         ###   ########.fr       */
+/*   Updated: 2024/02/14 18:59:09 by alirola-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,9 @@ int	main(int argc, char **argv)
 		return (free_maps(g), EXIT_FAILURE);
 	if (check_map(g) == 1)
 		return (free_maps(g), EXIT_FAILURE);
-	g->mlx = mlx_init(48 * g->columns, 48 * g->lines, "SO_LONG", false);
+	g->mlx = mlx_init(50 * g->columns, 50 * g->lines, "SO_LONG", false);
+	if (!g->mlx)
+		return (free_maps(g), EXIT_FAILURE);
+	if (texture_to_image(g) == 1 || image_to_window(g) == 1)
+		return (free_maps(g), ft_printf("Error imágenes\n"), EXIT_FAILURE);
 }
