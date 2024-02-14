@@ -19,7 +19,7 @@ void	free_maps(t_game *game)
 	i = 0;
 	if (game->map)
 	{
-		while (i <= game->map)
+		while (i <= game->lines)
 		{
 			free(game->map[i]);
 			i++;
@@ -29,7 +29,7 @@ void	free_maps(t_game *game)
 	i = 0;
 	if (game->map_copy)
 	{
-		while (i <= game->map_copy)
+		while (i <= game->lines)
 		{
 			free(game->map_copy[i]);
 			i++;
@@ -56,7 +56,7 @@ static int	readm_columns(char *line, t_game *game, int fd, char *map_name)
 		if (!game->map || !game->map_copy)
 			return (free(line), EXIT_FAILURE);
 		ft_strlcpy(game->map[i], line, game->columns);
-		ft_strlcpy(game->map_copy[i], line, game->columns):
+		ft_strlcpy(game->map_copy[i], line, game->columns);
 		free(line);
 		line = get_next_line(fd);
 		i++;

@@ -14,6 +14,13 @@
 # define SO_LONG_H
 # include "../libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
+# include <fcntl.h>
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
 
 typedef struct s_game
 {
@@ -30,12 +37,6 @@ typedef struct s_game
 	t_point	local_exit;
 	mlx_t	*mlx;
 }	t_game;
-
-typedef struct s_point
-{
-	int	x;
-	int	y;
-}	t_point;
 
 int		read_map(t_game *game, char *map_name);
 int		format_checker(char *map_name);

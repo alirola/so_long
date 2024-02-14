@@ -16,7 +16,7 @@ LIBFT = $(LIBFT_PATH)/libft.a
 
 MLX = $(MLX_PATH)/libmlx42.a
 
-LIB_SYS = 
+LIB_SYS = -Iinclude -lglfw -L "/Users/alirola-/.brew/opt/glfw/lib"
 
 all : $(NAME) $(LIBFT) $(MLX)
 

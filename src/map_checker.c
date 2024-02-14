@@ -85,7 +85,7 @@ int	check_objects(t_game *game, int line, int i)
 
 void	check_way(t_game *game, t_point current)
 {
-	if (current.x >= game->columns || current.y >= game->line || current.x < 0
+	if (current.x >= game->columns || current.y >= game->lines || current.x < 0
 		|| current.y < 0 || game->map_copy[current.y][current.x] == '1'
 		|| game->map_copy[current.y][current.x] == '*')
 		return ;
