@@ -40,5 +40,6 @@ typedef struct s_point
 int		read_map(t_game *game, char *map_name);
 int		format_checker(char *map_name);
 void	free_maps(t_game *game);
+int		check_map(t_game *game);
 
 #endif
