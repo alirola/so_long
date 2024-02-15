@@ -7,6 +7,7 @@ FILES = src/map_checker.c\
 		src/so_long.c\
 		src/image_to_window.c\
 		src/texture_to_image.c\
+		src/movement.c\
 
 OBJS = $(FILES:.c=.o)
 

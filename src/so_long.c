@@ -6,7 +6,7 @@
 /*   By: alirola- <alirola-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:35:09 by alirola-          #+#    #+#             */
-/*   Updated: 2024/02/14 19:08:31 by alirola-         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:57:09 by alirola-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	init(t_game *game)
 	game->e = 0;
 	game->e_copy = 0;
 	game->p = 0;
+	game->moves = 0;
 }
 
 int	main(int argc, char **argv)
@@ -44,6 +45,7 @@ int	main(int argc, char **argv)
 		return (free_maps(g), EXIT_FAILURE);
 	if (texture_to_image(g) == 1 || image_to_window(g) == 1)
 		return (free_maps(g), ft_printf("Error imágenes\n"), EXIT_FAILURE);
+	mlx_key_hook(g->mlx, &player_move, g);
 	mlx_loop(g->mlx);
 	mlx_terminate(g->mlx);
 	return (free_maps(g), EXIT_SUCCESS);

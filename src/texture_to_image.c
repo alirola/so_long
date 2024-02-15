@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alirola- <alirola-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 18:02:40 by alirola-          #+#    #+#             */
-/*   Updated: 2024/02/14 18:59:07 by alirola-         ###   ########.fr       */
+/*   Created: 2024/02/15 14:25:16 by alirola-          #+#    #+#             */
+/*   Updated: 2024/02/15 14:26:30 by alirola-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	clean_textures(t_game *game)
 int	image_error(t_game *g)
 {
 	if (!g->t_coin || !g->t_floor || !g->t_pd || !g->t_pi || !g->t_oe
-		|| !g->t_ce || !g->t_wall || !g->i_coin || !g->i_floor || !g->i_pd 
+		|| !g->t_ce || !g->t_wall || !g->i_coin || !g->i_floor || !g->i_pd
 		|| !g->i_pi || !g->i_oe || !g->i_ce || !g->i_wall)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
