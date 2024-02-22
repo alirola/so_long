@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alirola- <alirola-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 14:10:02 by alirola-          #+#    #+#             */
-/*   Updated: 2024/02/19 14:10:02 by alirola-         ###   ########.fr       */
+/*   Created: 2024/02/07 15:42:03 by alirola-          #+#    #+#             */
+/*   Updated: 2024/02/07 15:42:03 by alirola-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	free_maps(t_game *game)
 {

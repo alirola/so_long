@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alirola- <alirola-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:35:09 by alirola-          #+#    #+#             */
-/*   Updated: 2024/02/21 15:51:28 by alirola-         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:12:40 by alirola-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 /*void	ft_leaks(void)
 {
-	system("leaks -q so_long");
+	system ("leaks -q so_long");
 }*/
 
 static void	init(t_game *game)
@@ -29,6 +29,15 @@ static void	init(t_game *game)
 	game->e_copy = 0;
 	game->p = 0;
 	game->moves = 0;
+	game->enemy = 0;
+}
+
+void	game_loop(void *param)
+{
+	t_game	*game;
+
+	game = param;
+	enemy_move(game);
 }
 
 int	main(int argc, char **argv)
@@ -51,6 +60,7 @@ int	main(int argc, char **argv)
 	if (texture_to_image(g) == 1 || image_to_window(g) == 1)
 		return (free_maps(g), ft_printf("Error imágenes\n"), EXIT_FAILURE);
 	mlx_key_hook(g->mlx, &player_move, g);
+	mlx_loop_hook(g->mlx, game_loop, g);
 	mlx_loop(g->mlx);
 	mlx_terminate(g->mlx);
 	return (free_maps(g), EXIT_SUCCESS);
